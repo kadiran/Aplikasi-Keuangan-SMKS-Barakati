@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Input Keuangan | SMKS Barakati</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <img src="logo.png" class="logo">
+  <div class="header-text">
+    <h1>SMKS BARAKATI</h1>
+    <h2>Sistem Informasi Keuangan Sekolah</h2>
+    <p>Tahun Anggaran 2026</p>
+  </div>
+</header>
+
+<div class="container">
+  <h3>Input Transaksi Keuangan</h3>
+
+  <label>Tanggal</label>
+  <input type="date" id="tanggal">
+
+  <label>Uraian</label>
+  <textarea id="uraian"></textarea>
+
+  <label>Jenis</label>
+  <select id="jenis">
+    <option value="masuk">Penerimaan</option>
+    <option value="keluar">Pengeluaran</option>
+  </select>
+
+  <label>Jumlah (Rp)</label>
+  <input type="number" id="jumlah">
+
+  <button class="success" onclick="simpan()">💾 Simpan</button>
+</div>
+
+<script src="app.js"></script>
+<script>
+function simpan(){
+  simpanTransaksiArsip({
+    tanggal: document.getElementById("tanggal").value,
+    uraian: document.getElementById("uraian").value,
+    jenis: document.getElementById("jenis").value,
+    jumlah: Number(document.getElementById("jumlah").value)
+  });
+}
+</script>
+
+</body>
+</html>

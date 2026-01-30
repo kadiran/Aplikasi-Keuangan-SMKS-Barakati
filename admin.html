@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Keuangan | SMKS Barakati</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <img src="logo.png" class="logo">
+  <div class="header-text">
+    <h1>SMKS BARAKATI</h1>
+    <h2>Sistem Informasi Keuangan Sekolah</h2>
+    <p>Tahun Anggaran 2026</p>
+  </div>
+</header>
+
+<div class="container">
+  <h3>Laporan Keuangan</h3>
+
+  <div id="rekap"></div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Tanggal</th>
+        <th>No Bukti</th>
+        <th>Uraian</th>
+        <th>Penerimaan</th>
+        <th>Pengeluaran</th>
+      </tr>
+    </thead>
+    <tbody id="tabel"></tbody>
+  </table>
+
+  <button onclick="window.print()">🖨️ Cetak</button>
+  <button class="success" onclick="exportExcel()">📊 Export Excel</button>
+  <button onclick="backupArsip()">📦 Backup Arsip Dinas</button>
+  <button class="danger" onclick="kunciAudit()">🔒 Kunci Audit</button>
+</div>
+
+<script src="app.js"></script>
+<script>
+tampilkan();
+
+const r = rekap();
+document.getElementById("rekap").innerHTML = `
+  <p><b>Total Penerimaan :</b> Rp ${r.masuk}</p>
+  <p><b>Total Pengeluaran :</b> Rp ${r.keluar}</p>
+  <p><b>Saldo Akhir :</b> Rp ${r.saldo}</p>
+`;
+</script>
+
+</body>
+</html>

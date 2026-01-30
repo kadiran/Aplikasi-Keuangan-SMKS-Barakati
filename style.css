@@ -1,0 +1,163 @@
+﻿body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f4f6f9;
+  margin: 0;
+  color: #333;
+}
+
+/* ===============================
+   HEADER SEKOLAH
+================================ */
+.header {
+  display: flex;
+  align-items: center;
+  background: #0b3c5d;
+  color: white;
+  padding: 15px 25px;
+  border-bottom: 5px solid #1c6ea4;
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.header-text h1 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.header-text h2 {
+  margin: 2px 0;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.header-text p {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* ===============================
+   KONTEN UTAMA
+================================ */
+.container {
+  background: white;
+  margin: 25px auto;
+  padding: 25px;
+  max-width: 1000px;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.1);
+}
+
+h3 {
+  border-bottom: 2px solid #1c6ea4;
+  padding-bottom: 5px;
+  color: #0b3c5d;
+}
+
+/* ===============================
+   FORM & INPUT
+================================ */
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 12px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* ===============================
+   TOMBOL
+================================ */
+button {
+  margin-top: 15px;
+  padding: 10px 16px;
+  background: #1c6ea4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #155a8a;
+}
+
+button.danger {
+  background: #b30000;
+}
+
+button.success {
+  background: #2e7d32;
+}
+
+/* ===============================
+   TABEL LAPORAN
+================================ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+th {
+  background: #1c6ea4;
+  color: white;
+  padding: 8px;
+}
+
+td {
+  border: 1px solid #ccc;
+  padding: 7px;
+  text-align: center;
+}
+
+/* ===============================
+   FOOTER CETAK
+================================ */
+.footer {
+  margin-top: 40px;
+  font-size: 13px;
+  text-align: center;
+  color: #555;
+}
+
+/* ===============================
+   MODE CETAK (AUDIT)
+================================ */
+@media print {
+  body {
+    background: white;
+  }
+
+  button {
+    display: none;
+  }
+
+  .container {
+    box-shadow: none;
+    border: none;
+  }
+
+  body::after {
+    content: "ARSIP DINAS PENDIDIKAN";
+    position: fixed;
+    top: 40%;
+    left: 20%;
+    font-size: 48px;
+    color: rgba(0,0,0,0.08);
+    transform: rotate(-30deg);
+  }
+}

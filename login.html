@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Keuangan Sekolah</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h3>LOGIN APLIKASI KEUANGAN</h3>
+
+<form onsubmit="login(event)">
+<input id="user" placeholder="Username" required>
+<input id="pass" type="password" placeholder="Password" required>
+<button>MASUK</button>
+</form>
+
+<script>
+function login(e){
+e.preventDefault();
+const u=user.value,p=pass.value;
+if(u==="bendahara"&&p==="12345"){
+localStorage.role="bendahara";
+location.href="index.html";
+}else if(u==="kepsek"&&p==="kepsek2026"){
+localStorage.role="kepsek";
+location.href="admin.html";
+}else{
+alert("Akses ditolak");
+}
+}
+</script>
+
+</body>
+</html>
