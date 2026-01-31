@@ -1,4 +1,4 @@
-﻿alert("APP.JS FINAL AKTIF");
+alert("APP.JS FINAL AKTIF");
 
 // ================================
 // LOAD DATA DARI LOCAL STORAGE
@@ -10,15 +10,17 @@ let data = JSON.parse(localStorage.getItem("keuangan")) || [];
 // ================================
 function kunciAudit(){
   localStorage.setItem("auditLock", "true");
-  alert("DATA DIKUNCI UNTUK AUDIT");
+  alert("🔒 DATA DIKUNCI UNTUK AUDIT");
 }
 
-function bukaAudit(password){
+function bukaAudit(){
+  const password = prompt("Masukkan Password Kepsek:");
   if(password === "kepsek2026"){
     localStorage.removeItem("auditLock");
-    alert("KUNCI AUDIT DIBUKA");
+    alert("🔓 KUNCI AUDIT DIBUKA");
+    location.reload();
   } else {
-    alert("Password salah");
+    alert("❌ Password salah");
   }
 }
 
@@ -38,14 +40,14 @@ function generateNoBukti(){
 
 function simpanTransaksiArsip(d){
   if (isAuditLocked()) {
-    alert("MODE AUDIT AKTIF!\nData terkunci.");
+    alert("⚠️ MODE AUDIT AKTIF!\nData terkunci.");
     return;
   }
 
   d.noBukti = generateNoBukti();
   data.push(d);
   localStorage.setItem("keuangan", JSON.stringify(data));
-  alert("Data disimpan\nNo Bukti: " + d.noBukti);
+  alert("✅ Data disimpan\nNo Bukti: " + d.noBukti);
 }
 
 // ================================
@@ -98,6 +100,7 @@ function backupArsip(){
     sekolah: "SMKS Barakati",
     tahun: "2026",
     tanggalBackup: new Date().toLocaleString("id-ID"),
+    statusAudit: isAuditLocked() ? "TERKUNCI" : "TERBUKA",
     data: data
   };
 
@@ -123,12 +126,8 @@ function exportExcel(){
 
   let html = `
   <table border="1">
-    <tr>
-      <th colspan="6">LAPORAN KEUANGAN SMKS BARAKATI</th>
-    </tr>
-    <tr>
-      <th colspan="6">TAHUN ANGGARAN 2026</th>
-    </tr>
+    <tr><th colspan="6">LAPORAN KEUANGAN SMKS BARAKATI</th></tr>
+    <tr><th colspan="6">TAHUN ANGGARAN 2026</th></tr>
     <tr>
       <th>No</th>
       <th>Tanggal</th>
