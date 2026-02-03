@@ -1,4 +1,4 @@
-﻿let data = JSON.parse(localStorage.getItem("keuangan")) || [];
+let data = JSON.parse(localStorage.getItem("keuangan")) || [];
 
 const form = document.getElementById("form");
 const tbody = document.getElementById("data");
