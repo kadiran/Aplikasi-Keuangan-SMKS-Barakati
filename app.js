@@ -135,8 +135,15 @@ function terapkanFilter(){
 }
 
 function resetFilter(){
+  // reset pilihan filter
   document.getElementById("filterBulan").value = "";
-  renderTabel(data);
+  document.getElementById("filterTahun").value = "2026"; // default tahun aktif
+
+  // kembalikan data tampil ke semua data
+  dataTampil = data;
+
+  // tampilkan ulang tabel
+  renderTabel(dataTampil);
 }
 
 // ================================
@@ -190,3 +197,4 @@ function exportExcel(){
   a.download = "LAPORAN_KEUANGAN_SMKS_BARAKATI_2026.xls";
   a.click();
 }
+
