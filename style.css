@@ -1,4 +1,4 @@
-﻿body {
+body {
   font-family: "Segoe UI", Arial, sans-serif;
   background: #f4f6f9;
   margin: 0;
@@ -100,6 +100,10 @@ button.danger {
 
 button.success {
   background: #2e7d32;
+}
+button.info {
+  background-color: #3498db;
+  color: white;
 }
 
 /* ===============================
